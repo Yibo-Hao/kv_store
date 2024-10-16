@@ -6,5 +6,6 @@
 /Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/lib/CMakeFiles/rebuild_cache.dir
 /Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/test/CMakeFiles/edit_cache.dir
 /Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir
+/Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/tool/CMakeFiles/repl.dir
 /Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/tool/CMakeFiles/edit_cache.dir
 /Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/tool/CMakeFiles/rebuild_cache.dir

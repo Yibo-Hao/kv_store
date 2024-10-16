@@ -111,6 +111,7 @@ build cmake_object_order_depends_target_kv_store: phony || lib/CMakeFiles/kv_sto
 build lib/CMakeFiles/kv_store.dir/kv_store.cpp.o: CXX_COMPILER__kv_store_unscanned_Debug /Users/haoyibo/CLionProjects/kv_store/lib/kv_store.cpp || cmake_object_order_depends_target_kv_store
   DEP_FILE = lib/CMakeFiles/kv_store.dir/kv_store.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.1 -fcolor-diagnostics
+  INCLUDES = -I/Users/haoyibo/CLionProjects/kv_store/lib
   OBJECT_DIR = lib/CMakeFiles/kv_store.dir
   OBJECT_FILE_DIR = lib/CMakeFiles/kv_store.dir
 
@@ -187,6 +188,39 @@ build test/rebuild_cache: phony test/CMakeFiles/rebuild_cache.util
 # /Users/haoyibo/CLionProjects/kv_store/CMakeLists.txt
 # =============================================================================
 
+# =============================================================================
+# Object build statements for EXECUTABLE target repl
+
+
+#############################################
+# Order-only phony target for repl
+
+build cmake_object_order_depends_target_repl: phony || cmake_object_order_depends_target_kv_store
+
+build tool/CMakeFiles/repl.dir/repl.cpp.o: CXX_COMPILER__repl_unscanned_Debug /Users/haoyibo/CLionProjects/kv_store/tool/repl.cpp || cmake_object_order_depends_target_repl
+  DEP_FILE = tool/CMakeFiles/repl.dir/repl.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.1 -fcolor-diagnostics
+  INCLUDES = -I/Users/haoyibo/CLionProjects/kv_store/tool/../lib -I/Users/haoyibo/CLionProjects/kv_store/lib
+  OBJECT_DIR = tool/CMakeFiles/repl.dir
+  OBJECT_FILE_DIR = tool/CMakeFiles/repl.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target repl
+
+
+#############################################
+# Link the executable tool/repl
+
+build tool/repl: CXX_EXECUTABLE_LINKER__repl_Debug tool/CMakeFiles/repl.dir/repl.cpp.o | lib/libkv_store.a || lib/libkv_store.a
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.1
+  LINK_LIBRARIES = lib/libkv_store.a
+  OBJECT_DIR = tool/CMakeFiles/repl.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = tool/repl
+  TARGET_PDB = repl.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -217,6 +251,8 @@ build kv_store: phony lib/libkv_store.a
 
 build libkv_store.a: phony lib/libkv_store.a
 
+build repl: phony tool/repl
+
 # =============================================================================
 # Folder targets.
 
@@ -246,7 +282,7 @@ build test/all: phony
 #############################################
 # Folder: /Users/haoyibo/CLionProjects/kv_store/cmake-build-debug/tool
 
-build tool/all: phony
+build tool/all: phony tool/repl
 
 # =============================================================================
 # Built-in targets

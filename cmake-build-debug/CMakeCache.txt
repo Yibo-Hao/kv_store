@@ -14,6 +14,15 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+ALL_BINARY_DIR:STATIC=/Users/haoyibo/CLionProjects/kv_store/cmake-build-debug
+
+//Value Computed by CMake
+ALL_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+ALL_SOURCE_DIR:STATIC=/Users/haoyibo/CLionProjects/kv_store
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
 
