@@ -5,11 +5,11 @@
 
 #include "kv_store.h"
 
-void KvStore::set(const std::string &key, const std::string &value) {
+void KvStoreLib::set(const std::string &key, const std::string &value) {
     data[key] = value;
 }
 
-std::optional<std::string> KvStore::get(const std::string &key) {
+std::optional<std::string> KvStoreLib::get(const std::string &key) {
     auto iter = data.find(key);
     if (iter == data.end()) {
         return {std::nullopt};
@@ -17,7 +17,7 @@ std::optional<std::string> KvStore::get(const std::string &key) {
     return {iter->second};
 }
 
-bool KvStore::exists (const std::string &key) {
+bool KvStoreLib::exists (const std::string &key) {
     auto iter = data.find(key);
     return iter != data.end();
 }

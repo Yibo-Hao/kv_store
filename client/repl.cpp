@@ -3,7 +3,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <optional>
 #include <memory>
 
 #include "grpcpp/create_channel.h"

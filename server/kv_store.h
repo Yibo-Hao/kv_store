@@ -5,7 +5,7 @@
 #include <optional>
 #include <unordered_map>
 
-class KvStore {
+class KvStoreLib{
 public:
     void set(const std::string &key, const std::string &value);
 
