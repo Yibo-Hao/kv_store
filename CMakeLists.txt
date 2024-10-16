@@ -1,8 +1,11 @@
-cmake_minimum_required(VERSION 3.28)
-project(kv_store)
+cmake_minimum_required(VERSION 3.27)
+project(KvStore)
 
-add_executable(kv_store main.cpp)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_subdirectory(src)
+add_executable(KvStore main.cpp)
+
+add_subdirectory(lib)
 add_subdirectory(test)
 add_subdirectory(tool)
