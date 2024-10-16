@@ -8,5 +8,7 @@ add_executable(KvStore main.cpp)
 
 add_subdirectory(lib)
 add_subdirectory(test)
-add_subdirectory(tool)
+add_subdirectory(client)
+add_subdirectory(server)
 add_subdirectory(third-party)
+add_subdirectory(proto)
