@@ -1,5 +1,6 @@
 #include <string>
 #include <optional>
+#include <iostream>
 
 #include "grpcpp/support/status.h"
 #include "grpcpp/impl/codegen/server_context.h"
@@ -18,6 +19,7 @@ KvServerImpl::Get(::grpc::ServerContext *context,
     } else {
         response->set_exists(false);
     }
+    std::cout << "Get: " << key << ", " << "Exists: " << std::boolalpha << response->exists() << std::endl;
     return ::grpc::Status::OK;
 }
 
@@ -29,5 +31,6 @@ KvServerImpl::Set(::grpc::ServerContext* context,
     const std::string& value = request->value();
     store.set(key, value);
     response->set_success(true);
+    std::cout << "Set: " << key << " = " << value << std::endl;
     return ::grpc::Status::OK;
 }
