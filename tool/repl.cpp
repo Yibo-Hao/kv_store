@@ -21,7 +21,7 @@ int main() {
             in >> key;
             std::optional<std::string> value = store.get(key);
             if (value.has_value()) {
-                std::cout << '\t' << value.value() << std::endl;
+                std::cout << key << ':' << '\t' << value.value() << std::endl;
             } else {
                 std::cout << "Key not found" << std::endl;
             }
@@ -29,8 +29,11 @@ int main() {
             std::string key, value;
             in >> key >> value;
             store.set(key, value);
+            std::cout << "Key set" << std::endl;
         } else if (cmd == "quit") {
             break;
+        } else if (cmd.empty()) {
+            continue;
         } else {
             std::cout << "Unknown command: " << cmd << std::endl;
         }
