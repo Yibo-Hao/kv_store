@@ -1,6 +1,7 @@
 #include <string>
 #include <optional>
 #include <iostream>
+#include <mutex>
 
 #include "grpcpp/support/status.h"
 #include "grpcpp/impl/codegen/server_context.h"
@@ -12,7 +13,11 @@ KvServerImpl::Get(::grpc::ServerContext *context,
                   const ::KvStore::GetRequest *request,
                   ::KvStore::GetResponse *response) {
     const std::string& key = request->key();
-    std::optional<std::string> result = store.get(key);
+    std::optional<std::string> result;
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        result = store.get(key);
+    }
     if (result.has_value()) {
         response->set_exists(true);
         response->set_value(result.value());
@@ -29,7 +34,10 @@ KvServerImpl::Set(::grpc::ServerContext* context,
                   ::KvStore::SetResponse* response) {
     const std::string& key = request->key();
     const std::string& value = request->value();
-    store.set(key, value);
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        store.set(key, value);
+    }
     response->set_success(true);
     std::cout << "Set: " << key << " = " << value << std::endl;
     return ::grpc::Status::OK;

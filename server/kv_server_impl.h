@@ -1,6 +1,8 @@
 #ifndef KVSTORE_KV_SERVER_IMPL_H
 #define KVSTORE_KV_SERVER_IMPL_H
 
+#include <mutex>
+
 #include "grpcpp/support/status.h"
 #include "grpcpp/impl/codegen/server_context.h"
 
@@ -15,6 +17,7 @@ public:
     ::grpc::Status Set(::grpc::ServerContext*, const ::KvStore::SetRequest*, ::KvStore::SetResponse*) override;
 
 private:
+    std::mutex mutex_;
     KvStoreLib store;
 };
 
